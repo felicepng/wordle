@@ -1,4 +1,6 @@
-import { writable } from "svelte/store"
+// @ts-ignore
+import { words } from 'popular-english-words';
+import { writable } from "svelte/store";
 
 export const NUM_ROWS = 6;
 export const NUM_COLS = 6;
@@ -22,7 +24,9 @@ export const currentCell = writable({
   col: 0
 })
 
-export const CORRECT_WORD = writable("FELICE")
-export const guess = writable("")
-export const colors = writable(createGrid());
+const word = words.getMostPopularLength(10000, NUM_COLS)[Math.floor(Math.random() * 10000)];
+console.log("word", word.toUpperCase());
+
+export const CORRECT_WORD = writable(word.toUpperCase());
 export const board = writable(createGrid());
+export const colors = writable(createGrid());
