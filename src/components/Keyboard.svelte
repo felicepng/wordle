@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Key from './Key.svelte';
-	import { board, currentCell, NUM_COLS } from '../store';
+	import { NUM_COLS, CORRECT_WORD, board, currentCell, colors, guess } from '../store';
 
 	const row1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
 	const row2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
@@ -16,6 +16,23 @@
 			row: row + 1,
 			col: 0
 		});
+
+		const prevRow = $currentCell.row - 1;
+		const newColorsBoard = $colors;
+
+		for (let i = 0; i < NUM_COLS; i++) {
+			let char = $board[prevRow][i];
+			guess.update((prev) => prev + char);
+
+			if ($CORRECT_WORD[i] === char) {
+				newColorsBoard[prevRow][i] = 'bg-teal-600 border-none';
+			} else if ($CORRECT_WORD.includes(char)) {
+				newColorsBoard[prevRow][i] = 'bg-yellow-600 border-none';
+			} else {
+				newColorsBoard[prevRow][i] = 'bg-gray-800 border-none';
+			}
+		}
+		colors.set(newColorsBoard);
 	};
 
 	const handleDel = () => {

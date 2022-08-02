@@ -22,4 +22,7 @@ export const currentCell = writable({
   col: 0
 })
 
+export const CORRECT_WORD = writable("FELICE")
+export const guess = writable("")
+export const colors = writable(createGrid());
 export const board = writable(createGrid());
