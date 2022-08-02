@@ -1,41 +1,41 @@
 <script lang="ts">
 	import Key from './Key.svelte';
-	import { board, boardState } from '../store';
+	import { board, currentCell, NUM_COLS } from '../store';
 
 	const row1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
 	const row2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
 	const row3 = ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL'];
 
 	const handleEnter = () => {
-		let { row, col } = $boardState;
-		if (col !== 6) {
+		let { row, col } = $currentCell;
+		if (col !== NUM_COLS) {
 			// TODO: add pop-up notif: invalid guess
 			return;
 		}
-		boardState.set({
+		currentCell.set({
 			row: row + 1,
 			col: 0
 		});
 	};
 
 	const handleDel = () => {
-		if ($boardState.col === 0) {
+		if ($currentCell.col === 0) {
 			return;
 		}
-		boardState.update((prev) => {
+		currentCell.update((prev) => {
 			return {
 				row: prev.row,
 				col: prev.col - 1
 			};
 		});
-		board.update((prevBoard: string[][]) => {
-			const newBoard = prevBoard;
-			newBoard[$boardState.row][$boardState.col] = '';
+		board.update((prev) => {
+			const newBoard = prev;
+			newBoard[$currentCell.row][$currentCell.col] = '';
 			return newBoard;
 		});
 	};
 
-	const keyPress = (key = '') => {
+	const keyPress = (key: string) => {
 		if (key === 'ENTER') {
 			handleEnter();
 			return;
@@ -44,16 +44,17 @@
 			handleDel();
 			return;
 		}
-		let { row, col } = $boardState;
-		if (col === 6) {
+		let { row, col } = $currentCell;
+		if (col === NUM_COLS) {
 			return;
 		}
-		board.update((prevBoard: string[][]) => {
-			const newBoard = prevBoard;
+
+		board.update((prev) => {
+			const newBoard = prev;
 			newBoard[row][col++] = key;
 			return newBoard;
 		});
-		boardState.set({ row, col });
+		currentCell.set({ row, col });
 	};
 </script>
 

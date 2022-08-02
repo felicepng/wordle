@@ -4,10 +4,10 @@
 </script>
 
 <div class="flex flex-col gap-y-2 justify-center items-center py-8">
-	{#each $board as row, y}
+	{#each $board as rows, row}
 		<div class="flex gap-x-2">
-			{#each row as _, x}
-				<Cell {x} {y} />
+			{#each rows as _, col}
+				<Cell {row} {col} />
 			{/each}
 		</div>
 	{/each}

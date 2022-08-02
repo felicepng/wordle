@@ -1,11 +1,15 @@
 import { writable } from "svelte/store"
 
+export const NUM_ROWS = 6;
+export const NUM_COLS = 6;
+
 const createGrid = () => {
   const grid: string[][] = [];
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < NUM_ROWS; i++) {
     grid.push([]);
-    for (let j = 0; j < 6; j++) {
+
+    for (let j = 0; j < NUM_COLS; j++) {
       grid[i][j] = "";
     }
   }
@@ -13,7 +17,7 @@ const createGrid = () => {
   return grid;
 }
 
-export const boardState = writable({
+export const currentCell = writable({
   row: 0,
   col: 0
 })
