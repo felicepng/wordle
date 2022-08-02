@@ -1,2 +1,11 @@
-<h1 class="text-3xl font-bold underline text-red-500">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Nav from '../components/Nav.svelte';
+	import Board from '../components/Board.svelte';
+	import Keyboard from '../components/Keyboard.svelte';
+</script>
+
+<main class="bg-black h-screen">
+	<Nav />
+	<Board />
+	<Keyboard />
+</main>
