@@ -13,4 +13,9 @@ const createGrid = () => {
   return grid;
 }
 
+export const boardState = writable({
+  row: 0,
+  col: 0
+})
+
 export const board = writable(createGrid());
