@@ -1,8 +1,10 @@
 // @ts-ignore
 import { words } from 'popular-english-words';
+// @ts-ignore
+import wordExists from 'word-exists';
 import { writable } from "svelte/store";
 
-const NUM_POOL = 200;
+const NUM_POOL = 1000;
 const NUM_ROWS = 6;
 export const NUM_COLS = 6;
 
@@ -34,10 +36,20 @@ export const currentCell = writable({
   col: 0
 })
 
-const word = words.getMostPopularLength(NUM_POOL, NUM_COLS)[Math.floor(Math.random() * NUM_POOL)];
+let word;
+do {
+  word = words.getMostPopularLength(NUM_POOL, NUM_COLS)[Math.floor(Math.random() * NUM_POOL)];
+} while (!wordExists(word));
 console.log("word", word.toUpperCase());
 
 export const CORRECT_WORD = writable(word.toUpperCase());
 export const board = writable(createBoard());
 export const boardColors = writable(createBoard());
 export const keyboardColors = writable(createKeyboard());
+
+export enum GameState {
+  RUNNING = "RUNNING",
+  WIN = "WIN",
+  LOSE = "LOSE"
+}
+export const gameState = writable(GameState.RUNNING);

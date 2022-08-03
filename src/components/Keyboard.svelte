@@ -10,7 +10,9 @@
 		board,
 		currentCell,
 		boardColors,
-		keyboardColors
+		keyboardColors,
+		gameState,
+		GameState
 	} from '../store';
 
 	const row1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
@@ -43,7 +45,7 @@
 		}
 
 		const currentGuess = $board[row].join('');
-		if (row !== 0 && currentGuess !== 'FELICE' && !wordExists(currentGuess)) {
+		if (currentGuess !== 'FELICE' && !wordExists(currentGuess)) {
 			showInvalidToast();
 			return;
 		}
@@ -53,6 +55,20 @@
 			col: 0
 		});
 		handleColorChange();
+
+		if (currentGuess === $CORRECT_WORD) {
+			// TODO: win game
+			console.log('win game');
+			gameState.set(GameState.WIN);
+			return;
+		}
+
+		if (row === 5 && currentGuess !== $CORRECT_WORD) {
+			// TODO: lose game
+			console.log('lose game');
+			gameState.set(GameState.LOSE);
+			return;
+		}
 	};
 
 	const handleDel = () => {
@@ -73,6 +89,9 @@
 	};
 
 	const handleKeyPress = (key: string) => {
+		if ($gameState !== GameState.RUNNING) {
+			return;
+		}
 		if (key === 'ENTER') {
 			handleEnter();
 			return;
@@ -96,6 +115,10 @@
 
 	const handleKeydown = (e: KeyboardEvent) => {
 		e.preventDefault();
+		if ($gameState !== GameState.RUNNING) {
+			return;
+		}
+
 		if ((e.key.length === 1 && e.key.match(/[a-z]/i)) || e.key === 'Enter') {
 			handleKeyPress(e.key.toUpperCase());
 		} else if (e.key === 'Backspace') {
