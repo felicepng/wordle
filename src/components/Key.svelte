@@ -1,6 +1,7 @@
 <script lang="ts">
 	// @ts-ignore
 	import CgBackspace from 'svelte-icons-pack/cg/CgBackspace';
+	// @ts-ignore
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 
 	export let char: string;

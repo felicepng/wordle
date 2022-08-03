@@ -1,8 +1,8 @@
-# create-svelte
+# Wordle App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+I was bored during one of my off days and decided to pick up Svelte and SvelteKit. Still a WIP.
 
-## Creating a project
+## Deployment
 
 If you're seeing this, you've probably already done this step. Congrats!
 
@@ -14,15 +14,14 @@ npm create svelte@latest
 npm create svelte@latest my-app
 ```
 
-## Developing
+## Local Development
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To start a development server:
 
 ```bash
-npm run dev
+npm install
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm run dev
 ```
 
 ## Building

@@ -1,6 +1,6 @@
 <script lang="ts">
 	// @ts-ignore
-	import { words } from 'popular-english-words';
+	import wordExists from 'word-exists';
 	import { onMount } from 'svelte';
 	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';
 	import Key from './Key.svelte';
@@ -35,10 +35,9 @@
 			return;
 		}
 
-		const allWords = words.getAll();
 		const currentGuess = $board[row].join('');
 
-		if (row !== 0 && currentGuess !== 'FELICE' && !allWords.includes(currentGuess)) {
+		if (row !== 0 && currentGuess !== 'FELICE' && !wordExists(currentGuess)) {
 			showInvalidToast();
 			return;
 		}
@@ -104,7 +103,7 @@
 	};
 </script>
 
-<div class="bg-black flex flex-col fixed bottom-0 gap-y-2 items-center w-screen pb-6">
+<div class="bg-black flex flex-col fixed bottom-0 gap-y-2 items-center w-screen py-6">
 	<div class="flex gap-x-2">
 		{#each row1 as char}
 			<Key {char} {keyPress} />
