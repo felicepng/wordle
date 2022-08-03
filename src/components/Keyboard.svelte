@@ -48,7 +48,6 @@
 		}
 
 		const currentGuess = $board[row].join('');
-
 		if (row !== 0 && currentGuess !== 'FELICE' && !wordExists(currentGuess)) {
 			showInvalidToast();
 			return;
@@ -58,21 +57,7 @@
 			row: row + 1,
 			col: 0
 		});
-
-		const prevRow = $currentCell.row - 1;
-		const newColorsBoard = $colors;
-
-		for (let i = 0; i < NUM_COLS; i++) {
-			let char = $board[prevRow][i];
-			if ($CORRECT_WORD[i] === char) {
-				newColorsBoard[prevRow][i] = 'bg-teal-600 border-none';
-			} else if ($CORRECT_WORD.includes(char)) {
-				newColorsBoard[prevRow][i] = 'bg-yellow-600 border-none';
-			} else {
-				newColorsBoard[prevRow][i] = 'bg-gray-800 border-none';
-			}
-		}
-		colors.set(newColorsBoard);
+		handleColorChange();
 	};
 
 	const handleDel = () => {
@@ -112,6 +97,33 @@
 			return newBoard;
 		});
 		currentCell.set({ row, col });
+	};
+
+	const handleColorChange = () => {
+		const prevRow = $currentCell.row - 1;
+		const newColorsBoard = $colors;
+		let correctWordTemp = $CORRECT_WORD;
+
+		newColorsBoard[prevRow] = Array(NUM_COLS).fill('bg-gray-800 border-none');
+		for (let i = 0; i < NUM_COLS; i++) {
+			const char = $board[prevRow][i];
+			if (correctWordTemp[i] === char) {
+				newColorsBoard[prevRow][i] = 'bg-teal-600 border-none';
+				correctWordTemp = correctWordTemp.replace(char, ' ');
+			}
+		}
+
+		for (let i = 0; i < NUM_COLS; i++) {
+			const char = $board[prevRow][i];
+			if (
+				newColorsBoard[prevRow][i] !== 'bg-teal-600 border-none' &&
+				correctWordTemp.includes(char)
+			) {
+				newColorsBoard[prevRow][i] = 'bg-yellow-600 border-none';
+				correctWordTemp = correctWordTemp.replace(char, ' ');
+			}
+		}
+		colors.set(newColorsBoard);
 	};
 </script>
 
