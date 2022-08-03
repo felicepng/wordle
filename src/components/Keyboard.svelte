@@ -24,23 +24,6 @@
 			return newBoard;
 		});
 		handleEnter();
-
-		window.addEventListener(
-			'keydown',
-			function (e: KeyboardEvent) {
-				e.preventDefault();
-				if ((e.key.length === 1 && e.key.match(/[a-z]/i)) || e.key === 'Enter') {
-					keyPress(e.key.toUpperCase());
-				} else if (e.key === 'Backspace') {
-					keyPress('DEL');
-				}
-
-				if (document.activeElement && document.activeElement !== document.body) {
-					(document.activeElement as HTMLElement).blur();
-				}
-			},
-			false
-		);
 	});
 
 	const showInvalidToast = () => {
@@ -89,7 +72,7 @@
 		});
 	};
 
-	const keyPress = (key: string) => {
+	const handleKeyPress = (key: string) => {
 		if (key === 'ENTER') {
 			handleEnter();
 			return;
@@ -109,6 +92,19 @@
 			return newBoard;
 		});
 		currentCell.set({ row, col });
+	};
+
+	const handleKeydown = (e: KeyboardEvent) => {
+		e.preventDefault();
+		if ((e.key.length === 1 && e.key.match(/[a-z]/i)) || e.key === 'Enter') {
+			handleKeyPress(e.key.toUpperCase());
+		} else if (e.key === 'Backspace') {
+			handleKeyPress('DEL');
+		}
+
+		if (document.activeElement && document.activeElement !== document.body) {
+			(document.activeElement as HTMLElement).blur();
+		}
 	};
 
 	const handleColorChange = () => {
@@ -146,22 +142,24 @@
 	};
 </script>
 
+<svelte:window on:keydown={handleKeydown} />
+
 <div
 	class="bg-black flex flex-col fixed bottom-0 gap-y-1.5 md:gap-y-2 items-center w-screen pb-8 pt-4"
 >
 	<div class="flex gap-x-1.5 md:gap-x-2">
 		{#each row1 as char}
-			<Key {char} {keyPress} />
+			<Key {char} {handleKeyPress} />
 		{/each}
 	</div>
 	<div class="flex gap-x-1.5 md:gap-x-2">
 		{#each row2 as char}
-			<Key {char} {keyPress} />
+			<Key {char} {handleKeyPress} />
 		{/each}
 	</div>
 	<div class="flex gap-x-1.5 md:gap-x-2">
 		{#each row3 as char}
-			<Key {char} {keyPress} />
+			<Key {char} {handleKeyPress} />
 		{/each}
 	</div>
 </div>

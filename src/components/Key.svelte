@@ -6,7 +6,7 @@
 	import { keyboardColors } from '../store';
 
 	export let char: string;
-	export let keyPress: (key: string) => void;
+	export let handleKeyPress: (key: string) => void;
 
 	$: color =
 		char.length === 1 ? $keyboardColors[char.charCodeAt(0) - 65] : 'bg-gray-700 hover:bg-gray-800';
@@ -14,7 +14,7 @@
 
 <button
 	class={`${color} text-white py-4 px-2.5 md:px-3.5 rounded-[4px] text-sm md:text-md`}
-	on:click={() => keyPress(char)}
+	on:click={() => handleKeyPress(char)}
 >
 	{#if char !== 'DEL'}
 		{char}
