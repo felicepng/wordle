@@ -1,20 +1,22 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import { board, colors } from '../store';
 
 	export let row: number;
 	export let col: number;
 	$: char = $board[row][col];
 	$: color = $colors[row][col];
+
+	const defaultStyle: string =
+		'h-16 w-16 border border-gray-500 text-white font-bold text-3xl flex justify-center items-center';
 </script>
 
-<div
-	class={`${color} cell h-16 w-16 border border-gray-500 text-white font-bold text-3xl flex justify-center items-center`}
->
-	{char}
-</div>
-
-<style>
-	.cell {
-		transition: background-color 0.7s;
-	}
-</style>
+{#if color}
+	<div in:fade={{ delay: 200 * (col - 1) }} class={`${color} ${defaultStyle}`}>
+		{char}
+	</div>
+{:else}
+	<div class={defaultStyle}>
+		{char}
+	</div>
+{/if}
