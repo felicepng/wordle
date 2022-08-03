@@ -1,7 +1,13 @@
 <nav
-	class="bg-animate text-transparent bg-gradient-to-r bg-clip-text from-yellow-500 via-teal-500 to-indigo-600 flex justify-center text-3xl sm:text-4xl font-semibold italic tracking-wide py-3 border-b border-gray-700"
+	class="bg-gradient-to-r from-yellow-500 via-teal-500 to-indigo-600 flex justify-center items-center pb-[0.5px]"
 >
-	wordle!
+	<div class="bg-black w-screen">
+		<div
+			class="bg-animate text-transparent bg-gradient-to-r bg-clip-text from-yellow-500 via-teal-500 to-indigo-600 flex justify-center text-3xl sm:text-4xl font-semibold italic tracking-wide py-3.5 border-b border-gray-700"
+		>
+			wordle!
+		</div>
+	</div>
 </nav>
 
 <style>

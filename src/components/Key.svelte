@@ -16,7 +16,7 @@
 <svelte:window bind:innerWidth />
 
 <button
-	class={`${color} text-white py-4 px-2.5 sm:px-3.5 rounded-[4px] text-sm sm:text-md`}
+	class={`${color} text-white py-4 px-2.5 sm:px-3.5 2xl:px-4 2xl:py-5 rounded-[4px] text-sm sm:text-md`}
 	on:click={() => handleKeyPress(char)}
 >
 	{#if char !== 'DEL'}
