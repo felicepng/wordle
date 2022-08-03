@@ -12,7 +12,10 @@
 		char.length === 1 ? $keyboardColors[char.charCodeAt(0) - 65] : 'bg-gray-700 hover:bg-gray-800';
 </script>
 
-<button class={`${color} text-white py-4 px-3.5 rounded-[4px]`} on:click={() => keyPress(char)}>
+<button
+	class={`${color} text-white py-4 px-2.5 md:px-3.5 rounded-[4px] text-sm md:text-md`}
+	on:click={() => keyPress(char)}
+>
 	{#if char !== 'DEL'}
 		{char}
 	{:else}
