@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { board, colors } from '../store';
+	import { board, boardColors } from '../store';
 
 	export let row: number;
 	export let col: number;
 	$: char = $board[row][col];
-	$: color = $colors[row][col];
+	$: color = $boardColors[row][col];
 
 	const defaultStyle: string =
 		'h-16 w-16 border border-gray-500 text-white font-bold text-3xl flex justify-center items-center';

@@ -3,15 +3,16 @@
 	import CgBackspace from 'svelte-icons-pack/cg/CgBackspace';
 	// @ts-ignore
 	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import { keyboardColors } from '../store';
 
 	export let char: string;
 	export let keyPress: (key: string) => void;
+
+	$: color =
+		char.length === 1 ? $keyboardColors[char.charCodeAt(0) - 65] : 'bg-gray-700 hover:bg-gray-800';
 </script>
 
-<button
-	class="text-white py-4 px-3.5 bg-gray-700 hover:bg-gray-800 rounded-[4px]"
-	on:click={() => keyPress(char)}
->
+<button class={`${color} text-white py-4 px-3.5 rounded-[4px]`} on:click={() => keyPress(char)}>
 	{#if char !== 'DEL'}
 		{char}
 	{:else}

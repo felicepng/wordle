@@ -6,18 +6,27 @@ const NUM_POOL = 200;
 const NUM_ROWS = 6;
 export const NUM_COLS = 6;
 
-const createGrid = () => {
-  const grid: string[][] = [];
+const createBoard = () => {
+  const newBoard: string[][] = [];
 
   for (let i = 0; i < NUM_ROWS; i++) {
-    grid.push([]);
+    newBoard.push([]);
 
     for (let j = 0; j < NUM_COLS; j++) {
-      grid[i][j] = "";
+      newBoard[i][j] = "";
     }
   }
 
-  return grid;
+  return newBoard;
+}
+
+const createKeyboard = () => {
+  const keyboard = [];
+
+  for (let i = 0; i < 26; i++) {
+    keyboard[i] = "bg-gray-700 hover:bg-gray-800";
+  }
+  return keyboard;
 }
 
 export const currentCell = writable({
@@ -29,5 +38,6 @@ const word = words.getMostPopularLength(NUM_POOL, NUM_COLS)[Math.floor(Math.rand
 console.log("word", word.toUpperCase());
 
 export const CORRECT_WORD = writable(word.toUpperCase());
-export const board = writable(createGrid());
-export const colors = writable(createGrid());
+export const board = writable(createBoard());
+export const boardColors = writable(createBoard());
+export const keyboardColors = writable(createKeyboard());
