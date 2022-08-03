@@ -17,6 +17,18 @@
 			return newBoard;
 		});
 		handleEnter();
+
+		window.addEventListener(
+			'keydown',
+			function (e: KeyboardEvent) {
+				if ((e.key.length === 1 && e.key.match(/[a-z]/i)) || e.key === 'Enter') {
+					keyPress(e.key.toUpperCase());
+				} else if (e.key === 'Backspace') {
+					keyPress('DEL');
+				}
+			},
+			false
+		);
 	});
 
 	const showInvalidToast = () => {
