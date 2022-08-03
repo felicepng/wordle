@@ -24,7 +24,7 @@ const createKeyboard = () => {
   const keyboard = [];
 
   for (let i = 0; i < 26; i++) {
-    keyboard[i] = "bg-gray-700 md:hover:bg-gray-800";
+    keyboard[i] = "bg-gray-700 sm:hover:bg-gray-800";
   }
   return keyboard;
 }

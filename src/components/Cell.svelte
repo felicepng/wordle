@@ -8,7 +8,7 @@
 	$: color = $boardColors[row][col];
 
 	const defaultStyle: string =
-		'h-12 w-12 md:h-16 md:w-16 border border-gray-500 text-white font-bold text-2xl md:text-3xl flex justify-center items-center';
+		'h-12 w-12 sm:h-16 sm:w-16 border border-gray-500 text-white font-bold text-2xl sm:text-3xl flex justify-center items-center';
 </script>
 
 {#if color}

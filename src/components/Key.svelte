@@ -8,17 +8,20 @@
 	export let char: string;
 	export let handleKeyPress: (key: string) => void;
 
+	$: innerWidth = 0;
 	$: color =
 		char.length === 1 ? $keyboardColors[char.charCodeAt(0) - 65] : 'bg-gray-700 hover:bg-gray-800';
 </script>
 
+<svelte:window bind:innerWidth />
+
 <button
-	class={`${color} text-white py-4 px-2.5 md:px-3.5 rounded-[4px] text-sm md:text-md`}
+	class={`${color} text-white py-4 px-2.5 sm:px-3.5 rounded-[4px] text-sm sm:text-md`}
 	on:click={() => handleKeyPress(char)}
 >
 	{#if char !== 'DEL'}
 		{char}
 	{:else}
-		<Icon src={CgBackspace} size="24px" />
+		<Icon src={CgBackspace} size={innerWidth < 768 ? '20px' : '22px'} />
 	{/if}
 </button>

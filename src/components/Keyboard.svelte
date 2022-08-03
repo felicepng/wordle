@@ -145,19 +145,19 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div
-	class="bg-black flex flex-col fixed bottom-0 gap-y-1.5 md:gap-y-2 items-center w-screen pb-8 pt-4"
+	class="bg-black flex flex-col fixed bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pb-8 pt-4"
 >
-	<div class="flex gap-x-1.5 md:gap-x-2">
+	<div class="flex gap-x-1.5 sm:gap-x-2">
 		{#each row1 as char}
 			<Key {char} {handleKeyPress} />
 		{/each}
 	</div>
-	<div class="flex gap-x-1.5 md:gap-x-2">
+	<div class="flex gap-x-1.5 sm:gap-x-2">
 		{#each row2 as char}
 			<Key {char} {handleKeyPress} />
 		{/each}
 	</div>
-	<div class="flex gap-x-1.5 md:gap-x-2">
+	<div class="flex gap-x-1.5 sm:gap-x-2">
 		{#each row3 as char}
 			<Key {char} {handleKeyPress} />
 		{/each}
