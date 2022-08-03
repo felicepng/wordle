@@ -28,10 +28,15 @@
 		window.addEventListener(
 			'keydown',
 			function (e: KeyboardEvent) {
+				e.preventDefault();
 				if ((e.key.length === 1 && e.key.match(/[a-z]/i)) || e.key === 'Enter') {
 					keyPress(e.key.toUpperCase());
 				} else if (e.key === 'Backspace') {
 					keyPress('DEL');
+				}
+
+				if (document.activeElement && document.activeElement !== document.body) {
+					(document.activeElement as HTMLElement).blur();
 				}
 			},
 			false
