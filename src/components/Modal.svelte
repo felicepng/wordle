@@ -55,17 +55,17 @@
 	<div
 		on:click={(e) => e.stopPropagation()}
 		in:fade
-		out:fade={{ duration: 200 }}
+		out:fade={{ duration: 250 }}
 		class="text-center py-4 px-8 border-4 border-gray-900 bg-[#0b101b] text-white rounded-md"
 	>
-		<div class="text-lg">
+		<div class="text-2xl">
 			{#if $gameState === GameState.WIN}
 				you won! 🎉
 			{:else}
 				you lost... 😥
 			{/if}
 		</div>
-		<div class="opacity-60 text-base">
+		<div class="opacity-60 text-xl">
 			the word was: {$CORRECT_WORD}
 		</div>
 
@@ -77,7 +77,7 @@
 
 		<div class="flex gap-x-3">
 			<button
-				class="text-sm border-[2.5px] border-gray-700 bg-[#0b101b] hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-gray-700 bg-[#0b101b] hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={handleCopy}
 			>
 				{#if isCopied}
@@ -92,7 +92,7 @@
 				{/if}
 			</button>
 			<button
-				class="text-sm border-[2.5px] border-gray-700 bg-[#0b101b] hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-gray-700 bg-[#0b101b] hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={() => {
 					isModalVisible.set(false);
 					window.location.reload();
