@@ -3,10 +3,10 @@
 	import Board from '../components/Board.svelte';
 	import Keyboard from '../components/Keyboard.svelte';
 	import Modal from '../components/Modal.svelte';
-	import { isModalVisible } from '../store';
+	import { isModalVisible, isDarkMode } from '../store';
 </script>
 
-<main>
+<main class={`${$isDarkMode && 'dark'}`}>
 	<div class="h-screen w-screen flex flex-col justify-between">
 		<Nav />
 		<Board />

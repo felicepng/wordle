@@ -53,3 +53,4 @@ export enum GameState {
 }
 export const gameState = writable(GameState.RUNNING);
 export const isModalVisible = writable(false);
+export const isDarkMode = writable(false);
