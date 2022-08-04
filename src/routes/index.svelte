@@ -2,10 +2,18 @@
 	import Nav from '../components/Nav.svelte';
 	import Board from '../components/Board.svelte';
 	import Keyboard from '../components/Keyboard.svelte';
+	import Modal from '../components/Modal.svelte';
+	import { gameState, GameState } from '../store';
 </script>
 
-<main class="bg-black h-screen">
-	<Nav />
-	<Board />
-	<Keyboard />
+<main>
+	<div class="bg-black h-screen w-screen">
+		<Nav />
+		<Board />
+		<Keyboard />
+	</div>
+
+	{#if $gameState !== GameState.RUNNING}
+		<Modal />
+	{/if}
 </main>

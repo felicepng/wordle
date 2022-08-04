@@ -4,7 +4,7 @@ import { words } from 'popular-english-words';
 import wordExists from 'word-exists';
 import { writable } from "svelte/store";
 
-const NUM_POOL = 1000;
+const NUM_POOL = 500;
 const NUM_ROWS = 6;
 export const NUM_COLS = 6;
 
