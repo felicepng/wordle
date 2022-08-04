@@ -34,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"popular-english-words": "^1.0.2",
+		"svelte-confetti": "^1.2.0",
 		"svelte-icons-pack": "^2.0.0",
 		"svelte-toasts": "^1.1.2",
 		"word-exists": "^1.0.0"

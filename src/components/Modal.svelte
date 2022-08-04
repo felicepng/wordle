@@ -7,6 +7,8 @@
 	import FaSolidUndoAlt from 'svelte-icons-pack/fa/FaSolidUndoAlt';
 	// @ts-ignore
 	import Icon from 'svelte-icons-pack/Icon.svelte';
+	// @ts-ignore
+	import { Confetti } from 'svelte-confetti';
 	import { fade } from 'svelte/transition';
 	import {
 		CORRECT_WORD,
@@ -34,7 +36,7 @@
 
 	let isCopied: boolean = false;
 	const handleCopy = () => {
-		navigator.clipboard.writeText(colorString + 'by felice png :-)');
+		navigator.clipboard.writeText(colorString + 'made by felice png');
 		isCopied = true;
 	};
 </script>
@@ -43,9 +45,17 @@
 	on:click={() => isModalVisible.set(false)}
 	class="absolute bottom-0 z-10 w-screen h-screen bg-[#000000cc] flex justify-center items-center"
 >
+	{#if $gameState === GameState.WIN}
+		<div class="absolute -mt-28">
+			<Confetti x={[-0.5, 0.5]} />
+			<Confetti amount="10" x={[-0.75, -0.3]} y={[0.15, 0.75]} />
+			<Confetti amount="10" x={[0.3, 0.75]} y={[0.15, 0.75]} />
+		</div>
+	{/if}
 	<div
 		on:click={(e) => e.stopPropagation()}
 		in:fade
+		out:fade={{ duration: 200 }}
 		class="text-center py-4 px-8 border-4 border-gray-900 bg-[#0b101b] text-white rounded-md"
 	>
 		<div class="text-lg">

@@ -62,13 +62,13 @@
 
 		if (currentGuess === $CORRECT_WORD) {
 			gameState.set(GameState.WIN);
-			isModalVisible.set(true);
+			setTimeout(() => isModalVisible.set(true), 1200);
 			return;
 		}
 
 		if (row === 5 && currentGuess !== $CORRECT_WORD) {
 			gameState.set(GameState.LOSE);
-			isModalVisible.set(true);
+			setTimeout(() => isModalVisible.set(true), 1200);
 			return;
 		}
 	};
