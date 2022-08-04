@@ -13,7 +13,7 @@
 		char.length === 1 ? $keyboardColors[char.charCodeAt(0) - 65] : 'bg-gray-700 hover:bg-gray-800';
 
 	const getSize = (width: number) => {
-		if (width < 768) {
+		if (width < 640) {
 			return '20px';
 		} else if (width < 1536) {
 			return '24px';

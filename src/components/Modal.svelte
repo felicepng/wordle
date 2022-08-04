@@ -62,7 +62,7 @@
 			{#if $gameState === GameState.WIN}
 				you won! 🎉
 			{:else}
-				you lost... 😥
+				you lost... 🙇‍♂️
 			{/if}
 		</div>
 		<div class="opacity-60 text-xl">

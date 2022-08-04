@@ -15,6 +15,6 @@
 		data.type === 'error' ? 'bg-[#ef444444] border-[#ef4444]' : 'bg-[#14b8a644] border-[#14b8a6]'
 	} border text-white py-1.5 px-2.5 sm:px-4 rounded-md text-base sm:text-xl flex gap-x-1.5 sm:gap-x-2 items-center`}
 >
-	<Icon src={RiSystemErrorWarningFill} size={innerWidth < 768 ? '14px' : '18px'} color="#ef4444" />
+	<Icon src={RiSystemErrorWarningFill} size={innerWidth < 640 ? '14px' : '18px'} color="#ef4444" />
 	<div>{data.description}</div>
 </div>
