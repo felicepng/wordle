@@ -143,7 +143,7 @@
 			const char = $board[prevRow][i];
 			if (correctWordTemp[i] === char) {
 				newBoardColors[prevRow][i] = 'bg-teal-600 border-none';
-				newKeyboardColors[char.charCodeAt(0) - 65] = 'bg-teal-600 hover:bg-teal-700';
+				newKeyboardColors[char.charCodeAt(0) - 65] = 'bg-teal-600 sm:hover:bg-teal-700';
 				correctWordTemp = correctWordTemp.replace(char, ' ');
 			}
 		}
@@ -157,11 +157,22 @@
 				newBoardColors[prevRow][i] = 'bg-yellow-600 border-none';
 				correctWordTemp = correctWordTemp.replace(char, ' ');
 
-				if (newKeyboardColors[char.charCodeAt(0) - 65] !== 'bg-teal-600 hover:bg-teal-700') {
-					newKeyboardColors[char.charCodeAt(0) - 65] = 'bg-yellow-600 hover:bg-yellow-700';
+				if (newKeyboardColors[char.charCodeAt(0) - 65] !== 'bg-teal-600 sm:hover:bg-teal-700') {
+					newKeyboardColors[char.charCodeAt(0) - 65] = 'bg-yellow-600 sm:hover:bg-yellow-700';
 				}
 			}
 		}
+
+		for (let i = 0; i < NUM_COLS; i++) {
+			const char = $board[prevRow][i];
+			if (
+				newKeyboardColors[char.charCodeAt(0) - 65] !== 'bg-teal-600 sm:hover:bg-teal-700' &&
+				newKeyboardColors[char.charCodeAt(0) - 65] !== 'bg-yellow-600 sm:hover:bg-yellow-700'
+			) {
+				newKeyboardColors[char.charCodeAt(0) - 65] = 'bg-gray-800 sm:hover:bg-gray-900';
+			}
+		}
+
 		boardColors.set(newBoardColors);
 		keyboardColors.set(newKeyboardColors);
 	};

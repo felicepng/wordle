@@ -10,7 +10,9 @@
 
 	$: innerWidth = 0;
 	$: color =
-		char.length === 1 ? $keyboardColors[char.charCodeAt(0) - 65] : 'bg-gray-700 hover:bg-gray-800';
+		char.length === 1
+			? $keyboardColors[char.charCodeAt(0) - 65]
+			: 'bg-gray-700 sm:hover:bg-gray-800';
 
 	const getSize = (width: number) => {
 		if (width < 640) {
