@@ -12,7 +12,7 @@
 	$: color =
 		char.length === 1
 			? $keyboardColors[char.charCodeAt(0) - 65]
-			: 'text-slate-900 bg-[#b9c6d6] sm:hover:bg-slate-400 dark:bg-gray-700 dark:sm:hover:bg-gray-800';
+			: 'text-slate-900 bg-[#b9c6d6] sm:hover:bg-slate-400 dark:text-white dark:bg-gray-700 dark:sm:hover:bg-gray-800';
 
 	const getSize = (width: number) => {
 		if (width < 640) {
