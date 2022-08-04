@@ -1,6 +1,6 @@
 # Wordle
 
-Decided to spend one of my off days picking up Svelte and building a Wordle game.
+Decided to spend one of my non-working days picking up Svelte and building a Wordle game.
 
 ## Local Set-up
 

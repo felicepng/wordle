@@ -7,7 +7,7 @@
 </script>
 
 <main>
-	<div class="bg-black h-screen w-screen">
+	<div class="h-screen w-screen">
 		<Nav />
 		<Board />
 		<Keyboard />

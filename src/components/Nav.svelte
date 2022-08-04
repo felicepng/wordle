@@ -13,7 +13,7 @@
 <svelte:window bind:innerWidth />
 
 <nav
-	class="bg-black w-screen flex justify-center items-center gap-x-2 sm:gap-x-2.5 py-2.5 sm:py-3.5 border-b border-gray-700"
+	class="top-0 sticky bg-black w-screen flex justify-center items-center gap-x-2 sm:gap-x-2.5 py-2.5 sm:py-3.5 border-b border-gray-700"
 >
 	<div class="text-white text-3xl sm:text-[40px] tracking-wide">wordle</div>
 	{#if $gameState === GameState.WIN}

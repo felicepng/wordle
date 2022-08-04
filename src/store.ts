@@ -40,7 +40,6 @@ let word;
 do {
   word = words.getMostPopularLength(NUM_POOL, NUM_COLS)[Math.floor(Math.random() * NUM_POOL)];
 } while (!wordExists(word));
-console.log("word", word.toUpperCase());
 
 export const CORRECT_WORD = writable(word.toUpperCase());
 export const board = writable(createBoard());
