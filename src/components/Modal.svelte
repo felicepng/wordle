@@ -17,7 +17,8 @@
 		boardColors,
 		currentCell,
 		NUM_COLS,
-		isModalVisible
+		isModalVisible,
+		isDarkMode
 	} from '../store';
 
 	let colorString = '';
@@ -56,7 +57,7 @@
 		on:click={(e) => e.stopPropagation()}
 		in:fade
 		out:fade={{ duration: 250 }}
-		class="text-center py-4 px-8 border-4 border-gray-900 bg-[#0b101b] text-white rounded-md"
+		class="text-center py-4 px-8 border-4 border-slate-500 dark:border-gray-900 bg-slate-300 dark:bg-[#0b101b] text-slate-900 dark:text-white rounded-md"
 	>
 		<div class="text-2xl">
 			{#if $gameState === GameState.WIN}
@@ -77,29 +78,29 @@
 
 		<div class="flex gap-x-3">
 			<button
-				class="text-lg border-[2.5px] border-gray-700 bg-[#0b101b] hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-300 dark:bg-[#0b101b] hover:bg-[#b8c6d8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={handleCopy}
 			>
 				{#if isCopied}
 					<div class="flex items-center gap-x-1.5">
-						<Icon src={FaSolidCheck} size="12px" color="#ffffff" />
+						<Icon src={FaSolidCheck} size="12px" color={$isDarkMode ? '#ffffff' : '#1e293b'} />
 						COPIED
 					</div>
 				{:else}
 					<div class="flex items-center gap-x-1.5">
-						<Icon src={FiCopy} size="14px" />COPY
+						<Icon src={FiCopy} size="14px" color={$isDarkMode ? '#ffffff' : '#1e293b'} />COPY
 					</div>
 				{/if}
 			</button>
 			<button
-				class="text-lg border-[2.5px] border-gray-700 bg-[#0b101b] hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-300 dark:bg-[#0b101b] hover:bg-[#b8c6d8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={() => {
 					isModalVisible.set(false);
 					window.location.reload();
 				}}
 			>
 				<div class="flex items-center gap-x-1.5">
-					<Icon src={FaSolidUndoAlt} size="12px" color="#ffffff" />
+					<Icon src={FaSolidUndoAlt} size="12px" color={$isDarkMode ? '#ffffff' : '#1e293b'} />
 					REPLAY
 				</div>
 			</button>

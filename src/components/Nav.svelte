@@ -18,11 +18,19 @@
 	<div class="text-slate-900 dark:text-white text-3xl sm:text-[40px] tracking-wide">wordle</div>
 	{#if $gameState === GameState.WIN}
 		<button on:click={() => isModalVisible.set(true)} class="pt-0.5 sm:pt-1">
-			<Icon src={AiOutlineSmile} size={innerWidth < 640 ? '20px' : '23px'} color="#ffffff" />
+			<Icon
+				src={AiOutlineSmile}
+				size={innerWidth < 640 ? '20px' : '23px'}
+				color={$isDarkMode ? '#ffffff' : '#1e293b'}
+			/>
 		</button>
 	{:else if $gameState === GameState.LOSE}
 		<button on:click={() => isModalVisible.set(true)} class="pt-0.5 sm:pt-1">
-			<Icon src={AiOutlineFrown} size={innerWidth < 640 ? '20px' : '23px'} color="#ffffff" />
+			<Icon
+				src={AiOutlineFrown}
+				size={innerWidth < 640 ? '20px' : '23px'}
+				color={$isDarkMode ? '#ffffff' : '#1e293b'}
+			/>
 		</button>
 	{/if}
 	<button class="dark:text-white" on:click={() => isDarkMode.update((prev) => !prev)}>
