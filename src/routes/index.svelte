@@ -3,7 +3,7 @@
 	import Board from '../components/Board.svelte';
 	import Keyboard from '../components/Keyboard.svelte';
 	import Modal from '../components/Modal.svelte';
-	import { gameState, GameState } from '../store';
+	import { isModalVisible } from '../store';
 </script>
 
 <main>
@@ -13,7 +13,7 @@
 		<Keyboard />
 	</div>
 
-	{#if $gameState !== GameState.RUNNING}
+	{#if $isModalVisible}
 		<Modal />
 	{/if}
 </main>

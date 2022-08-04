@@ -53,3 +53,4 @@ export enum GameState {
   LOSE = "LOSE"
 }
 export const gameState = writable(GameState.RUNNING);
+export const isModalVisible = writable(false);

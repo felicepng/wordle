@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { toasts, ToastContainer } from 'svelte-toasts';
 	import Key from './Key.svelte';
-    import Toast from './Toast.svelte';
+	import Toast from './Toast.svelte';
 	import {
 		NUM_COLS,
 		CORRECT_WORD,
@@ -13,7 +13,8 @@
 		boardColors,
 		keyboardColors,
 		gameState,
-		GameState
+		GameState,
+		isModalVisible
 	} from '../store';
 
 	const row1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
@@ -60,16 +61,14 @@
 		handleColorChange();
 
 		if (currentGuess === $CORRECT_WORD) {
-			// TODO: win game
-			console.log('win game');
 			gameState.set(GameState.WIN);
+			isModalVisible.set(true);
 			return;
 		}
 
 		if (row === 5 && currentGuess !== $CORRECT_WORD) {
-			// TODO: lose game
-			console.log('lose game');
 			gameState.set(GameState.LOSE);
+			isModalVisible.set(true);
 			return;
 		}
 	};
