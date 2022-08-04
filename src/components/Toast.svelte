@@ -11,7 +11,7 @@
 <svelte:window bind:innerWidth />
 
 <div
-	class="bg-[#522020de] border-red-500 border text-white py-1.5 px-2.5 sm:px-4 rounded-md text-base sm:text-xl flex gap-x-1.5 sm:gap-x-2 items-center"
+	class="bg-[#ffd7d7e0] dark:bg-[#522020de] border-red-500 border text-slate-800 dark:text-white py-1.5 px-2.5 sm:px-4 rounded-md text-base sm:text-xl flex gap-x-1.5 sm:gap-x-2 items-center"
 >
 	<Icon src={RiSystemErrorWarningFill} size={innerWidth < 640 ? '14px' : '18px'} color="#ef4444" />
 	<div>{data.description}</div>

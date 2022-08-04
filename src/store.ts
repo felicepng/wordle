@@ -26,7 +26,7 @@ const createKeyboard = () => {
   const keyboard = [];
 
   for (let i = 0; i < 26; i++) {
-    keyboard[i] = "bg-gray-700 sm:hover:bg-gray-800";
+    keyboard[i] = "bg-[#b9c6d6] sm:hover:bg-slate-400 dark:text-white dark:bg-gray-700 dark:sm:hover:bg-gray-800";
   }
   return keyboard;
 }
@@ -53,3 +53,4 @@ export enum GameState {
 }
 export const gameState = writable(GameState.RUNNING);
 export const isModalVisible = writable(false);
+export const isDarkMode = writable(true);

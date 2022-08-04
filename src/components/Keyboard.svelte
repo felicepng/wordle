@@ -77,12 +77,10 @@
 		if ($currentCell.col === 0) {
 			return;
 		}
-		currentCell.update((prev) => {
-			return {
-				row: prev.row,
-				col: prev.col - 1
-			};
-		});
+		currentCell.update((prev) => ({
+			row: prev.row,
+			col: prev.col - 1
+		}));
 		board.update((prev) => {
 			const newBoard = prev;
 			newBoard[$currentCell.row][$currentCell.col] = '';
@@ -181,7 +179,7 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div
-	class="bg-black flex flex-col sticky bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pt-4 pb-8 sm:pb-6 2xl:pb-10"
+	class="bg-slate-100 dark:bg-black flex flex-col sticky bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pt-4 pb-8 sm:pb-6 2xl:pb-10"
 >
 	<div class="flex gap-x-1.5 sm:gap-x-2">
 		{#each row1 as char}
