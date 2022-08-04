@@ -40,9 +40,11 @@
 </script>
 
 <div
+	on:click={() => isModalVisible.set(false)}
 	class="absolute bottom-0 z-10 w-screen h-screen bg-[#000000cc] flex justify-center items-center"
 >
 	<div
+		on:click={(e) => e.stopPropagation()}
 		in:fade
 		class="text-center py-4 px-8 border-4 border-gray-900 bg-[#0b101b] text-white rounded-md"
 	>
@@ -83,7 +85,7 @@
 				class="text-sm border-[2.5px] border-gray-700 bg-[#0b101b] hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={() => {
 					isModalVisible.set(false);
-					// TODO: reset board state
+					window.location.reload();
 				}}
 			>
 				<div class="flex items-center gap-x-1.5">
