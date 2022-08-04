@@ -7,7 +7,7 @@
 </script>
 
 <main>
-	<div class="h-screen w-screen">
+	<div class="h-screen w-screen flex flex-col justify-between">
 		<Nav />
 		<Board />
 		<Keyboard />
