@@ -57,7 +57,7 @@
 		on:click={(e) => e.stopPropagation()}
 		in:fade
 		out:fade={{ duration: 250 }}
-		class="text-center py-4 px-8 border-4 border-slate-500 dark:border-gray-900 bg-slate-300 dark:bg-[#0b101b] text-slate-900 dark:text-white rounded-md"
+		class="text-center py-4 px-8 border-4 border-slate-500 dark:border-gray-900 bg-slate-200 dark:bg-[#0b101b] text-slate-900 dark:text-white rounded-md"
 	>
 		<div class="text-2xl">
 			{#if $gameState === GameState.WIN}
@@ -78,7 +78,7 @@
 
 		<div class="flex gap-x-3">
 			<button
-				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-300 dark:bg-[#0b101b] hover:bg-[#b8c6d8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-200 dark:bg-[#0b101b] hover:bg-[#cbd8e8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={handleCopy}
 			>
 				{#if isCopied}
@@ -93,7 +93,7 @@
 				{/if}
 			</button>
 			<button
-				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-300 dark:bg-[#0b101b] hover:bg-[#b8c6d8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-200 dark:bg-[#0b101b] hover:bg-[#cbd8e8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={() => {
 					isModalVisible.set(false);
 					window.location.reload();

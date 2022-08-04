@@ -26,7 +26,7 @@ const createKeyboard = () => {
   const keyboard = [];
 
   for (let i = 0; i < 26; i++) {
-    keyboard[i] = "text-slate-900 bg-[#b9c6d6] sm:hover:bg-slate-400 dark:text-white dark:bg-gray-700 dark:sm:hover:bg-gray-800";
+    keyboard[i] = "bg-[#b9c6d6] sm:hover:bg-slate-400 dark:text-white dark:bg-gray-700 dark:sm:hover:bg-gray-800";
   }
   return keyboard;
 }
@@ -40,7 +40,6 @@ let word;
 do {
   word = words.getMostPopularLength(NUM_POOL, NUM_COLS)[Math.floor(Math.random() * NUM_POOL)];
 } while (!wordExists(word));
-console.log("word", word.toUpperCase());
 
 export const CORRECT_WORD = writable(word.toUpperCase());
 export const board = writable(createBoard());
@@ -54,4 +53,4 @@ export enum GameState {
 }
 export const gameState = writable(GameState.RUNNING);
 export const isModalVisible = writable(false);
-export const isDarkMode = writable(false);
+export const isDarkMode = writable(true);

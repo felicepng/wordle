@@ -179,7 +179,7 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div
-	class="bg-slate-200 dark:bg-black flex flex-col sticky bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pt-4 pb-8 sm:pb-6 2xl:pb-10"
+	class="bg-slate-100 dark:bg-black flex flex-col sticky bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pt-4 pb-8 sm:pb-6 2xl:pb-10"
 >
 	<div class="flex gap-x-1.5 sm:gap-x-2">
 		{#each row1 as char}
