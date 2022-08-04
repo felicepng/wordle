@@ -2,8 +2,9 @@
 	// @ts-ignore
 	import wordExists from 'word-exists';
 	import { onMount } from 'svelte';
-	import { toasts, ToastContainer, FlatToast } from 'svelte-toasts';
+	import { toasts, ToastContainer } from 'svelte-toasts';
 	import Key from './Key.svelte';
+    import Toast from './Toast.svelte';
 	import {
 		NUM_COLS,
 		CORRECT_WORD,
@@ -32,8 +33,10 @@
 		toasts.add({
 			description: 'Invalid Guess',
 			duration: 2000,
-			placement: 'top-right',
-			type: 'error'
+			placement: 'top-left',
+			type: 'error',
+			// @ts-ignore
+			component: Toast
 		});
 	};
 
@@ -188,5 +191,5 @@
 </div>
 
 <ToastContainer let:data>
-	<FlatToast {data} />
+	<Toast {data} />
 </ToastContainer>

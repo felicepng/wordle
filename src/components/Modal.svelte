@@ -15,6 +15,10 @@
 		}
 		colorString += '\n';
 	}
+
+	const handleCopy = () => {
+		navigator.clipboard.writeText(colorString + 'created by felice :)');
+	};
 </script>
 
 <div
@@ -38,9 +42,7 @@
 			{/each}
 		</div>
 
-		<button on:click={() => navigator.clipboard.writeText(colorString + 'created by felice :)')}
-			>Copy</button
-		>
+		<button on:click={handleCopy}>Copy</button>
 
 		<button on:click={() => {}}>Replay</button>
 	</div>
