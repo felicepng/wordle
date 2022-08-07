@@ -17,7 +17,7 @@
 <svelte:window bind:innerWidth />
 
 <nav
-	class="top-0 sticky bg-slate-100 dark:bg-black w-screen flex justify-center items-center gap-x-2 sm:gap-x-2.5 py-2.5 sm:py-3.5 border-b border-slate-400 dark:border-gray-700"
+	class="z-10 top-0 sticky bg-slate-50 dark:bg-black w-screen flex justify-center items-center gap-x-2 sm:gap-x-2.5 py-2.5 sm:py-3.5 border-b border-slate-400 dark:border-gray-700"
 >
 	<div class="text-slate-900 dark:text-white text-3xl sm:text-[40px] tracking-wide">wordle</div>
 	{#if $gameState === GameState.WIN}
@@ -38,7 +38,11 @@
 		</button>
 	{/if}
 	<div class="absolute right-5 sm:right-8 flex items-center gap-x-3.5 sm:gap-x-6">
-		<button on:click={() => isDarkMode.update((prev) => !prev)}>
+		<button
+			on:click={() => {
+				isDarkMode.update((prev) => !prev);
+			}}
+		>
 			{#if $isDarkMode}
 				<Icon
 					src={IoSunny}

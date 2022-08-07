@@ -1,8 +1,8 @@
 # Wordle
 
-Decided to spend one of my non-working days picking up Svelte and building a Wordle game.
+Spent one of my non-working days picking up Svelte and building a Wordle game with SvelteKit.
 
-## Local Set-up
+## Set-up
 
 Enter the following commands to install required dependencies and start a development server:
 

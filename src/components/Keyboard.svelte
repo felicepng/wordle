@@ -114,7 +114,6 @@
 	};
 
 	const handleKeydown = (e: KeyboardEvent) => {
-		e.preventDefault();
 		if ($gameState !== GameState.RUNNING) {
 			return;
 		}
@@ -176,22 +175,22 @@
 	};
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window on:keydown|preventDefault={handleKeydown} />
 
 <div
-	class="bg-slate-100 dark:bg-black flex flex-col sticky bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pt-4 pb-8 sm:pb-6 2xl:pb-10"
+	class="bg-slate-50 dark:bg-black flex flex-col sticky bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pt-2 pb-5 sm:pb-7 2xl:pb-10"
 >
-	<div class="flex gap-x-1.5 sm:gap-x-2">
+	<div class="w-full max-w-[600px] flex gap-x-1.5 sm:gap-x-2 px-6">
 		{#each row1 as char}
 			<Key {char} {handleKeyPress} />
 		{/each}
 	</div>
-	<div class="flex gap-x-1.5 sm:gap-x-2">
+	<div class="w-full max-w-[590px] flex gap-x-1.5 sm:gap-x-2 px-10">
 		{#each row2 as char}
 			<Key {char} {handleKeyPress} />
 		{/each}
 	</div>
-	<div class="flex gap-x-1.5 sm:gap-x-2">
+	<div class="w-full max-w-[620px] flex gap-x-1.5 sm:gap-x-2 px-6">
 		{#each row3 as char}
 			<Key {char} {handleKeyPress} />
 		{/each}

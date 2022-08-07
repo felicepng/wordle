@@ -35,16 +35,17 @@
 		colorString += '\n';
 	}
 
+	const URL = 'wordle-felicepng.vercel.app';
 	let isCopied: boolean = false;
 	const handleCopy = () => {
-		navigator.clipboard.writeText(colorString + 'made by felice png');
+		navigator.clipboard.writeText(colorString + URL);
 		isCopied = true;
 	};
 </script>
 
 <div
 	on:click={() => isModalVisible.set(false)}
-	class="absolute bottom-0 z-10 w-screen h-screen bg-[#000000cc] flex justify-center items-center"
+	class="fixed z-10 w-full h-full bg-[#000000cc] flex justify-center items-center"
 >
 	{#if $gameState === GameState.WIN}
 		<div class="absolute -mt-28">
@@ -54,16 +55,16 @@
 		</div>
 	{/if}
 	<div
-		on:click={(e) => e.stopPropagation()}
+		on:click|stopPropagation
 		in:fade
 		out:fade={{ duration: 250 }}
-		class="text-center py-4 px-8 border-4 border-slate-500 dark:border-gray-900 bg-slate-200 dark:bg-[#0b101b] text-slate-900 dark:text-white rounded-md"
+		class="text-center py-4 px-8 border-4 border-slate-500 dark:border-gray-800 bg-slate-100 dark:bg-[#0b101b] text-slate-900 dark:text-white rounded-md"
 	>
 		<div class="text-2xl">
 			{#if $gameState === GameState.WIN}
 				you won! 🎉
 			{:else}
-				you lost... 🙇‍♂️
+				you lost... 🙇🏻‍♂️
 			{/if}
 		</div>
 		<div class="opacity-60 text-xl">
@@ -78,7 +79,7 @@
 
 		<div class="flex gap-x-3">
 			<button
-				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-200 dark:bg-[#0b101b] hover:bg-[#cbd8e8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-[#b6c4d5] dark:border-gray-700 bg-slate-100 dark:bg-[#0b101b] hover:bg-[#dbe6f2] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={handleCopy}
 			>
 				{#if isCopied}
@@ -93,7 +94,7 @@
 				{/if}
 			</button>
 			<button
-				class="text-lg border-[2.5px] border-slate-400 dark:border-gray-700 bg-slate-200 dark:bg-[#0b101b] hover:bg-[#cbd8e8] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
+				class="text-lg border-[2.5px] border-[#b6c4d5] dark:border-gray-700 bg-slate-100 dark:bg-[#0b101b] hover:bg-[#dbe6f2] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={() => {
 					isModalVisible.set(false);
 					window.location.reload();

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+        <meta name="viewport" content="width=device-width" />
         <title>wordle</title>
 		%sveltekit.head%
 	</head>
@@ -13,11 +13,21 @@
 </html>
 
 <style>
-    body {
-		background-color: #f1f5f9;
-        touch-action: none;
-	}
-	body .dark {
-		background-color: black;
+    :root {
+        font-family: 'VT323';
+        background-color: #f8fafc;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    }
+
+    [theme="dark"] {
+        background-color: black;
+    }
+    
+    @font-face {
+		font-family: 'VT323';
+		src: url('/fonts/vt323.woff2') format('woff2'), url('/fonts/vt323.woff') format('woff'),
+			url('/fonts/vt323.ttf') format('truetype'),
+			url('/fonts/vt323.eot') format('embedded-opentype');
 	}
 </style>
