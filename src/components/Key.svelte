@@ -1,7 +1,5 @@
 <script lang="ts">
-	// @ts-ignore
 	import CgBackspace from 'svelte-icons-pack/cg/CgBackspace';
-	// @ts-ignore
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import { keyboardColors } from '../store';
 
@@ -28,8 +26,9 @@
 <svelte:window bind:innerWidth />
 
 <button
+	aria-label="key"
 	class={`${color} ${color.includes('bg-[#cbd7e6]') ? 'text-slate-900' : 'text-white'} ${
-		char === 'ENTER' && 'px-3 sm:px-4 2xl:px-5'
+		char === 'ENTER' ? 'px-3 sm:px-4 2xl:px-5' : ''
 	} w-full flex justify-center items-center py-3 sm:py-4 2xl:py-5 rounded-[4px] text-lg sm:text-xl 2xl:text-2xl`}
 	on:click={() => handleKeyPress(char)}
 >

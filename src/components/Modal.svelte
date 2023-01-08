@@ -1,13 +1,8 @@
 <script lang="ts">
-	// @ts-ignore
 	import FaSolidCheck from 'svelte-icons-pack/fa/FaSolidCheck';
-	// @ts-ignore
 	import FiCopy from 'svelte-icons-pack/fi/FiCopy';
-	// @ts-ignore
 	import FaSolidUndoAlt from 'svelte-icons-pack/fa/FaSolidUndoAlt';
-	// @ts-ignore
 	import Icon from 'svelte-icons-pack/Icon.svelte';
-	// @ts-ignore
 	import { Confetti } from 'svelte-confetti';
 	import { fade } from 'svelte/transition';
 	import {
@@ -79,6 +74,7 @@
 
 		<div class="flex gap-x-3">
 			<button
+				aria-label="copy"
 				class="text-lg border-[2.5px] border-[#b6c4d5] dark:border-gray-700 bg-slate-100 dark:bg-[#0b101b] hover:bg-[#dbe6f2] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={handleCopy}
 			>
@@ -94,6 +90,7 @@
 				{/if}
 			</button>
 			<button
+				aria-label="replay"
 				class="text-lg border-[2.5px] border-[#b6c4d5] dark:border-gray-700 bg-slate-100 dark:bg-[#0b101b] hover:bg-[#dbe6f2] dark:hover:bg-gray-800 py-1.5 px-4 rounded-xl"
 				on:click={() => {
 					isModalVisible.set(false);

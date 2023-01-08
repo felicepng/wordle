@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Nav from '../components/Nav.svelte';
 	import Board from '../components/Board.svelte';
 	import Keyboard from '../components/Keyboard.svelte';
@@ -6,7 +6,7 @@
 	import { isModalVisible, isDarkMode } from '../store';
 </script>
 
-<main class={`${$isDarkMode && 'dark'} h-screen w-screen flex flex-col justify-between`}>
+<main id="app" class={`${$isDarkMode ? 'dark' : ''} w-screen flex flex-col`}>
 	<Nav />
 	<Board />
 	<Keyboard />

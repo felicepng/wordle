@@ -3,31 +3,16 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-        <meta name="viewport" content="width=device-width" />
-        <title>wordle</title>
+		<meta name="viewport" content="width=device-width" />
+		<title>wordle</title>
+		<meta 
+			name="description"
+			property="og:description"
+			content="a personalised wordle application developed by felice png, using svelte and sveltekit."
+		/>
 		%sveltekit.head%
 	</head>
 	<body>
 		<div>%sveltekit.body%</div>
 	</body>
 </html>
-
-<style>
-    :root {
-        font-family: 'VT323';
-        background-color: #f8fafc;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-    }
-
-    [theme="dark"] {
-        background-color: black;
-    }
-    
-    @font-face {
-		font-family: 'VT323';
-		src: url('/fonts/vt323.woff2') format('woff2'), url('/fonts/vt323.woff') format('woff'),
-			url('/fonts/vt323.ttf') format('truetype'),
-			url('/fonts/vt323.eot') format('embedded-opentype');
-	}
-</style>

@@ -1,10 +1,9 @@
 <script lang="ts">
-	// @ts-ignore
 	import RiSystemErrorWarningFill from 'svelte-icons-pack/ri/RiSystemErrorWarningFill';
-	// @ts-ignore
 	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import type { ToastProps } from 'svelte-toasts/types/common';
 
-	export let data: any;
+	export let data: ToastProps;
 	$: innerWidth = 0;
 </script>
 

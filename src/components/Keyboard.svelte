@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-ignore
 	import wordExists from 'word-exists';
 	import { onMount } from 'svelte';
 	import { toasts, ToastContainer } from 'svelte-toasts';
@@ -16,6 +15,7 @@
 		GameState,
 		isModalVisible
 	} from '../store';
+	import type { ToastProps } from 'svelte-toasts/types/common';
 
 	const row1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
 	const row2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
@@ -36,9 +36,8 @@
 			duration: 2000,
 			placement: 'top-left',
 			type: 'error',
-			// @ts-ignore
 			component: Toast
-		});
+		} as Partial<ToastProps>);
 	};
 
 	const handleEnter = () => {
@@ -178,7 +177,7 @@
 <svelte:window on:keydown|preventDefault={handleKeydown} />
 
 <div
-	class="bg-slate-50 dark:bg-black flex flex-col sticky bottom-0 gap-y-1.5 sm:gap-y-2 items-center w-screen pt-2 pb-5 sm:pb-7 2xl:pb-10"
+	class="bg-slate-50 dark:bg-black flex flex-col gap-y-1.5 sm:gap-y-2 items-center w-full pt-2 pb-5 sm:pb-7 2xl:pb-10"
 >
 	<div class="w-full max-w-[600px] flex gap-x-1.5 sm:gap-x-2 px-6">
 		{#each row1 as char}

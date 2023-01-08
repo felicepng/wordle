@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    font-family: 'VT323';
+    background-color: #f8fafc;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+[theme="dark"] {
+    background-color: black;
+}
+
+@font-face {
+    font-family: 'VT323';
+    src: url('/fonts/vt323.woff2') format('woff2')
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    display: none;
+    -webkit-appearance: none;
+}
+
+#app {
+    height: 100svh;
+}
